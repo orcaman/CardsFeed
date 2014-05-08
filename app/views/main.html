@@ -1,0 +1,27 @@
+  <input placeholder="Search, or say Google" x-webkit-speech autocomplete="off" />
+  <header></header>
+  <section class="card" ng-repeat="card in cards">
+  	<div class="not-connected" ng-if="!card.connected">
+  		<h1><a ng-click="connectToFB();">Login with <i class="fa fa-facebook-square"></i></a></h1>
+  	</div>
+  	<div class="comment" ng-if="card.comment">
+  		<h1>
+  			<i class="fa fa-comment"></i><strong>{{card.from}}</strong>{{card.text}}
+  		</h1>
+  	</div>
+  	<div class="event" ng-if="card.event">
+  		<h1>
+  			<i class="fa fa-glass"></i><strong>{{card.from}}</strong>{{card.text}}
+  		</h1>
+  		<div ng-if="card.hasMap">
+  			<google-map class="map"
+  			center="card.latLng"
+  			zoom="15"
+  			draggable="false"
+  			pan="true">
+  			<layer type="TrafficLayer" show="map.showTraffic"></layer>
+  			<marker coords="card.latLng"></marker>
+  		</google-map>
+  	</div>
+  </div>
+</section>

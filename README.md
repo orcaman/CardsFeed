@@ -1,3 +1,5 @@
+This is the source code for the blog post: http://orcaman.blogspot.nl/2014/05/google-now-style-angular-app-with.html
+
 Let's make a fun Google Now style angular app that uses angular's provider pattern to perform facebook API operations (login, query the graph API).
 
 Angular Facebook Provider

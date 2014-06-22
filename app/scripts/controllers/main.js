@@ -7,9 +7,11 @@ angular.module('nowApp').config(function(facebookProvider){
 	$scope.cards = [];
 	$scope.selected = undefined;
 	_gaq.push(['_trackEvent', 'landing_page', 'view']);
-	$('a').click(function() {
+
+	$scope.openLink = function(link) {
 		_gaq.push(['_trackEvent', 'landing_page', 'link-click', $(this).text()]);
-	});
+		window.open(link);
+	}
 
 	$scope.onSwipeLeft = function(idx) {
 		_gaq.push(['_trackEvent', 'landing_page', 'swipe-left']);
@@ -26,7 +28,7 @@ angular.module('nowApp').config(function(facebookProvider){
 
 	function doSearch(term) {
 		_gaq.push(['_trackEvent', 'landing_page', 'search', term]);
-		window.location.href = 'https://www.google.com/search?q=' + term;
+		window.open('https://www.google.com/search?q=' + term);
 	}
 
 	$scope.getTerms = function(q) {

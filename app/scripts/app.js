@@ -2,7 +2,10 @@
 
 angular.module('nowApp', [
   'ngRoute',
-  'google-maps'
+  'ngAnimate',
+  'google-maps',
+  'ui.bootstrap',
+  'ngTouch'
   ])
 .config(function ($routeProvider) {
   $routeProvider

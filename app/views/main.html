@@ -1,17 +1,18 @@
-  <input placeholder="Search, or say Google" x-webkit-speech autocomplete="off" />
+  <input type="text" name="q" value="" id="searchText" autocomplete="off" maxlength="256" x-webkit-speech="" ng-model="selected" typeahead="q for q in getTerms($viewValue) | filter:$viewValue | limitTo:4" typeahead-loading="searching..." typeahead-on-select="onSearchTermSelected($item)" class="searchInput form-control" placeholder="Google Search"/>
+
   <header></header>
-  <section class="card" ng-repeat="card in cards">
+  <section class="card" ng-repeat="card in cards" ng-swipe-left="onSwipeLeft($index)">
   	<div class="not-connected" ng-if="!card.connected">
   		<h1><a ng-click="connectToFB();">Login with <i class="fa fa-facebook-square"></i></a></h1>
   	</div>
   	<div class="comment" ng-if="card.comment">
   		<h1>
-  			<i class="fa fa-comment"></i><strong>{{card.from}}</strong>{{card.text}}
+  			<i ng-if="card.isLike" class="fa fa-thumbs-o-up"></i><i ng-if="!card.isLike" class="fa fa-comment"></i><a href="{{card.link}}"><strong>{{card.from}}</strong></a>{{card.text}}
   		</h1>
   	</div>
   	<div class="event" ng-if="card.event">
   		<h1>
-  			<i class="fa fa-glass"></i><strong>{{card.from}}</strong>{{card.text}}
+  			<i ng-if="!card.hasMap" class="fa fa-glass"></i><i ng-if="card.hasMap" class="fa fa-map-marker"></i><a href="{{card.link}}"><strong>{{card.from}}</strong></a>{{card.text}}
   		</h1>
   		<div ng-if="card.hasMap">
   			<google-map class="map"

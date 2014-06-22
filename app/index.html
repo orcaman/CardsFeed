@@ -13,6 +13,7 @@
   <!-- build:css({.tmp,app}) styles/main.css -->
   <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/now.css">
   <!-- endbuild -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmZHunuYUijjLfgwAv6D_KnPL_PFg3sRY&sensor=true"
@@ -23,19 +24,20 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-      <!-- Add your site or application content here -->
       <main ng-view=""></main>
+      <script type="text/javascript">
 
-      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-      <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-52154263-1']);
+        _gaq.push(['_trackPageview']);
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-     </script>
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+      </script>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -44,10 +46,14 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

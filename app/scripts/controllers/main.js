@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nowApp').config(function(facebookProvider){
-	facebookProvider.setAppID('350652338461');
+	facebookProvider.setAppID('');
 })
 .controller('MainCtrl', function ($scope, $timeout, $http, facebook) {
 	$scope.cards = [];
